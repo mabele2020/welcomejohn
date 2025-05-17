@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Reusing the function from earlier
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+// 1. Array of populations
+const populations = [1441, 1400, 331, 213]; // China, India, USA, Brazil
+
+// 2. Check if the array has exactly 4 elements
+console.log("Does the populations array have 4 elements?");
+console.log(populations.length === 4); // true or false
+
+// 3. Create the percentages array using the function
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3])
+];
+
+// 4. Log the percentages
+console.log("\nPercentages of world population:");
+console.log(percentages.map(p => p.toFixed(1) + "%"));
+
+
+
+    </script>
+</body>
+</html>

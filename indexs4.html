@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort A, B, and C</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { margin-top: 20px; }
+        input, button { margin: 10px; padding: 10px; }
+        .output { display: inline-block; width: 60px; padding: 10px; border: 1px solid #000; margin: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Values for A, B, and C</h2>
+    <div class="container">
+        <label>A:<input type="number" id="inputA"></label>
+        <label>B:<input type="number" id="inputB"></label>
+        <label>C:<input type="number" id="inputC"></label>
+    </div>
+    
+    <button onclick="sortValues('asc')">Ascending</button>
+    <button onclick="sortValues('desc')">Descending</button>
+
+    <h3>Sorted Numbers:</h3>
+    <div>
+        <span class="output" id="sortedA"></span>
+        <span class="output" id="sortedB"></span>
+        <span class="output" id="sortedC"></span>
+    </div>
+
+    <script>
+        function sortValues(order) {
+            let a = parseFloat(document.getElementById("inputA").value);
+            let b = parseFloat(document.getElementById("inputB").value);
+            let c = parseFloat(document.getElementById("inputC").value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Please enter valid numbers!");
+                return;
+            }
+
+            let numbers = [a, b, c];
+            numbers.sort((x, y) => order === 'asc' ? x - y : y - x);
+
+            document.getElementById("sortedA").textContent = numbers[0];
+            document.getElementById("sortedB").textContent = numbers[1];
+            document.getElementById("sortedC").textContent = numbers[2];
+        }
+    </script>
+
+</body>
+</html>
